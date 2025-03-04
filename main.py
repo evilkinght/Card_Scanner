@@ -45,6 +45,7 @@ def update_frame():
 
     cameraLabel.after(10, update_frame)
 
+# Enable manual entry of card quantity
 def update_amount(unique_key, value):
     try:
         scannedCards[unique_key]["amount"] = int(value)
@@ -77,7 +78,7 @@ def update_list():
         amountVar.trace_add("write", lambda *args, uk=unique_key, var=amountVar:
         update_amount(uk, var.get()))
 
-
+# adds card to list
 def add_card(name, cardId, amount, foil, detected_zones):
     unique_key = f"{cardId}-{foil}"
 
